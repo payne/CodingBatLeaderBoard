@@ -1,3 +1,6 @@
+from bs4 import BeautifulSoup
+
+html_doc="""
 <!doctype html><head>
 <meta charset=utf-8 />
 <link rel=stylesheet type=text/css href=/codingbat.css>
@@ -87,12 +90,8 @@ var problems = [
 <p style='margin: 1em 0 0em;' ><img src=/c2.jpg><a href='/prob/p123384'>Warmup-1 frontBack</a> &nbsp;&nbsp;<span style='font-size:x-small'>2017-05-20 14:52:08 GMT</span>
 <div><script type='text/javascript'>buildGraph(0);</script></div><p style='margin: 1em 0 0em;' ><img src=/c2.jpg><a href='/prob/p183592'>Warmup-1 front22</a> &nbsp;&nbsp;<span style='font-size:x-small'>2017-04-25 18:10:10 GMT</span>
 <div><script type='text/javascript'>buildGraph(1);</script></div><p style='margin: 1em 0 0em;' ><img src=/c2.jpg><a href='/prob/p132118'>String-1 conCat</a> &nbsp;&nbsp;<span style='font-size:x-small'>2017-05-26 02:23:15 GMT</span>
-<div><script type='text/javascript'>buildGraph(2);</script></div>
-
-<p style='margin: 1em 0 0em;' >
-	<img src=/c2.jpg><a href='/prob/p175762'>String-2 bobThere</a> &nbsp;&nbsp;<span style='font-size:x-small'>2017-07-11 19:40:49 GMT</span>
-<div><script type='text/javascript'>buildGraph(3);</script></div>
-<p style='margin: 1em 0 0em;' ><img src=/c2.jpg><a href='/prob/p197888'>Map-1 mapBully</a> &nbsp;&nbsp;<span style='font-size:x-small'>2016-05-30 23:38:31 GMT</span>
+<div><script type='text/javascript'>buildGraph(2);</script></div><p style='margin: 1em 0 0em;' ><img src=/c2.jpg><a href='/prob/p175762'>String-2 bobThere</a> &nbsp;&nbsp;<span style='font-size:x-small'>2017-07-11 19:40:49 GMT</span>
+<div><script type='text/javascript'>buildGraph(3);</script></div><p style='margin: 1em 0 0em;' ><img src=/c2.jpg><a href='/prob/p197888'>Map-1 mapBully</a> &nbsp;&nbsp;<span style='font-size:x-small'>2016-05-30 23:38:31 GMT</span>
 <div><script type='text/javascript'>buildGraph(4);</script></div><p style='margin: 1em 0 0em;' ><img src=/c2.jpg><a href='/prob/p117630'>Map-2 wordCount</a> &nbsp;&nbsp;<span style='font-size:x-small'>2017-09-10 00:22:12 GMT</span>
 <div><script type='text/javascript'>buildGraph(5);</script></div><p style='margin: 1em 0 0em;' ><img src=/c2.jpg><a href='/prob/p146974'>AP-1 scoresIncreasing</a> &nbsp;&nbsp;<span style='font-size:x-small'>2017-06-11 20:14:56 GMT</span>
 <div><script type='text/javascript'>buildGraph(6);</script></div><p style='margin: 1em 0 0em;' ><img src=/c2.jpg><a href='/prob/p161124'>Recursion-1 countAbc</a> &nbsp;&nbsp;<span style='font-size:x-small'>2017-06-01 02:35:08 GMT</span>
@@ -122,3 +121,14 @@ This done page also has a fixed url (<a href='/done?user=payne@mattpayne.org&tag
 <a href=/progress-graphs.html>About progress graphs</a> 
 <p style='font-size:x-small;'>Copyright <a style='font-size:x-small;' href='http://www-cs-faculty.stanford.edu/~nick'>Nick Parlante</a> 2017 - <a style='font-size:x-small;' href=/privacy.html>privacy</a>
 </body></html>
+"""
+
+soup = BeautifulSoup(html_doc, 'html.parser')
+
+#print(soup.prettify())
+#print(soup.script)
+a = soup.find_all('a')
+print(a[20])
+ps = a[20].findPreviousSibling()
+print(ps)
+
