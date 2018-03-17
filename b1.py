@@ -1,5 +1,19 @@
 from bs4 import BeautifulSoup
 
+class Problem:
+  def __init__(self, img, a):
+    self.img = img
+    self.a = a
+
+  def __str__(self):
+    #return "eggs" # self.img.attrs['src]' + " <---> " + self.a.attrs['href'] + self.a.text
+    try:
+      return "(%s,%s,%s)" % (self.img.attrs['src'], self.a.attrs['href'], self.a.text)
+    except KeyError:
+      return ""
+
+
+
 html_doc="""
 <!doctype html><head>
 <meta charset=utf-8 />
@@ -123,6 +137,7 @@ This done page also has a fixed url (<a href='/done?user=payne@mattpayne.org&tag
 </body></html>
 """
 
+
 soup = BeautifulSoup(html_doc, 'html.parser')
 
 #print(soup.prettify())
@@ -131,4 +146,10 @@ a = soup.find_all('a')
 print(a[20])
 ps = a[20].findPreviousSibling()
 print(ps)
+for p in a:
+  ps = p.findPreviousSibling()
+  if (ps!= None):
+    prob = Problem(ps, p)
+    print(prob)
+
 
