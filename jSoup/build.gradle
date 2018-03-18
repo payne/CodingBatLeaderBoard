@@ -2,7 +2,8 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'application'
 
-mainClassName = 'hello.HelloWorld'
+// mainClassName = 'hello.HelloWorld'
+mainClassName = 'org.jsoup.examples.Wikipedia'
 
 repositories {
     mavenCentral()
@@ -21,3 +22,4 @@ dependencies {
     compile 'org.jsoup:jsoup:1.11.2'
     testCompile "junit:junit:4.12"
 }
+
