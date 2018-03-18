@@ -3,7 +3,8 @@ apply plugin: 'eclipse'
 apply plugin: 'application'
 
 // mainClassName = 'hello.HelloWorld'
-mainClassName = 'org.jsoup.examples.Wikipedia'
+// mainClassName = 'org.jsoup.examples.Wikipedia'
+mainClassName = 'org.mattpayne.done.parser.CodingBatDone'
 
 repositories {
     mavenCentral()
