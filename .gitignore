@@ -1,2 +1,4 @@
-le-env
-*.swp
+gradlew
+gradle
+build
+.gradle
