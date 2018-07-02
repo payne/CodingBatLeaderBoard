@@ -1,10 +1,11 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'idea'
 apply plugin: 'application'
 
 // mainClassName = 'hello.HelloWorld'
 // mainClassName = 'org.jsoup.examples.Wikipedia'
-mainClassName = 'org.mattpayne.done.parser.CodingBatDone'
+mainClassName = 'org.mattpayne.done.ScoreBoard'
 
 repositories {
     mavenCentral()
