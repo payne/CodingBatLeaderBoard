@@ -61,12 +61,11 @@ public class ScoreBoard {
 
     private List<Problem> getProblems(String urlStr) throws IOException {
         Document doc = Jsoup.connect(urlStr).get();
-        // log(doc.title());
         List<Problem> problemList = new ArrayList<>();
 
         Elements newsHeadlines = doc.select("a");
         for (Element headline : newsHeadlines) {
-            String problemName=headline.text();
+            String problemName= headline.parent().text();
             String problemUrl = headline.absUrl("href");
             if (problemUrl.contains("prob")) {
                 Problem problem = new Problem(problemName, problemUrl);
@@ -74,9 +73,5 @@ public class ScoreBoard {
             }
         }
         return problemList;
-    }
-
-    private static void log(String msg, String... vals) {
-        System.out.println(String.format(msg, vals));
     }
 }
