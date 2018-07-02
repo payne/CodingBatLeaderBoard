@@ -1,2 +1,6 @@
-le-env
-*.swp
+gradlew
+gradle
+build
+.gradle
+secret_people.txt
+ScoreBoard.output.txt
