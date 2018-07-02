@@ -48,7 +48,10 @@ public class ScoreBoard {
     private void dump(PrintWriter out, Map<String, List<Problem>> personUrlToProblems) {
         for (String url : personUrlToProblems.keySet()) {
             List<Problem> problems = personUrlToProblems.get(url);
-            out.format("%s solved %d problems\n", url, problems.size());
+            long pythonCount =
+            problems.stream().filter(p -> p.problemName.contains("python")).count();
+            long javaCount = problems.size() - pythonCount;
+            out.format("%s solved %d java problems and %d python problems\n", url, javaCount, pythonCount);
             int number=1;
             for (Problem problem : problems) {
                 out.format("%d\t%s\n", number++, problem);
